@@ -1,0 +1,15 @@
+.start-page__input {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  border-bottom: 2px solid #CCCCCC;
+  padding: 0;
+  padding-bottom: 13px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.94px;
+  outline: none;
+  background: transparent;
+  color: #ffffff;
+}

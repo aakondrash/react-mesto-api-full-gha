@@ -1,0 +1,18 @@
+.navbar__email {
+  margin: 0;
+  margin-right: 24px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 17px;
+  text-align: center;
+  color: #FFFFFF;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.navbar__email:hover {
+  cursor: pointer;
+  opacity: 60%;
+}

@@ -1,0 +1,8 @@
+.element__group {
+  margin-top: 25px;
+  margin-left: 21px;
+  margin-bottom: 31px;
+  margin-right: 15px;
+  display: flex;
+  flex-direction: row;
+}

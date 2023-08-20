@@ -1,0 +1,9 @@
+.edit-form__submit-button_confirmation {
+  margin-top: 0px;
+}
+
+@media screen and (max-width: 767px) {
+  .edit-form__submit-button_confirmation {
+    margin-top: 0px;
+  }
+}

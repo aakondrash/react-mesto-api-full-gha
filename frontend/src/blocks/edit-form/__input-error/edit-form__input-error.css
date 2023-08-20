@@ -1,0 +1,10 @@
+.edit-form__input-error {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  color: rgba(255, 0, 0, 0);
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  transition: 0.2s;
+}

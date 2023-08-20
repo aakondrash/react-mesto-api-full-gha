@@ -1,0 +1,8 @@
+.image {
+  max-width: 75vw;
+  max-height: 75vh;
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  position: relative;
+}

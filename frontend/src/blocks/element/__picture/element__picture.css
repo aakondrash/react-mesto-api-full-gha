@@ -1,0 +1,10 @@
+.element__picture {
+  width: 282px;
+  height: 282px;
+  display: block;
+  background-color: #000;
+}
+
+.element__picture:hover {
+  cursor: pointer;
+}

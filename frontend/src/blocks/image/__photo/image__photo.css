@@ -1,0 +1,7 @@
+.image__photo {
+  max-width: 75vw;
+  max-height: 75vh;
+  min-width: 25vw;
+  min-height: 25vh;
+  margin: 0;
+}

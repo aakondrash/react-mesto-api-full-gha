@@ -1,0 +1,8 @@
+.start-page__fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

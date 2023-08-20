@@ -1,0 +1,19 @@
+.edit-form__title {
+  margin: 0;
+  margin-bottom: 54px;
+  align-self: flex-start;
+  color: #000;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29.05px;
+}
+
+@media screen and (max-width: 767px) {
+  .edit-form__title {
+    line-height: 21.78px;
+    font-size: 18px;
+    align-self: center;
+    margin-bottom: 75px;
+  }
+}
+

@@ -1,0 +1,26 @@
+.profile__profile-info {
+  padding: 0;
+  margin: 0;
+  margin-left: 30px;
+  display: grid;
+  align-items: baseline;
+  grid-template-columns: 1fr 24px;
+  column-gap: 18px;
+  row-gap: 16px;
+  grid-template-areas:
+    "name button"
+    "descr descr";
+}
+
+@media screen and (max-width: 1023px) {
+  .profile__profile-info {
+    position: relative;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    column-gap: 0;
+    row-gap: 0;
+  }
+}

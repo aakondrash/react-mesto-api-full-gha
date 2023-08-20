@@ -1,0 +1,10 @@
+.popup__container_fullscreen {
+  padding: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  word-wrap: wrap;
+  max-height: 75vh;
+}

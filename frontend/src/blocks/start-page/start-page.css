@@ -1,0 +1,10 @@
+.start-page {
+  width: 100%;
+  max-width: 358px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}

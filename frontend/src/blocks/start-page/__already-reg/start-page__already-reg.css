@@ -1,0 +1,15 @@
+.start-page__already-reg {
+  margin-top: 15px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.start-page__already-reg:hover {
+  cursor: pointer;
+  opacity: 60%;
+}

@@ -7,6 +7,8 @@ const BadRequestError = require('../error_templates/BadRequestError');
 const NotFoundError = require('../error_templates/NotFoundError');
 const UnauthorizedError = require('../error_templates/UnauthorizedError');
 
+const { JWT_SECRET, NODE_ENV } = process.env;
+
 
 module.exports.createUser = (req, res, next) => {
   const { name, about, avatar, email, password } = req.body;
@@ -112,7 +114,7 @@ module.exports.login = (req, res, next) => {
         }
         const token = jwt.sign(
           { _id: user._id },
-          'куку',
+          NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
           { expiresIn: '7d' },
         );
         return res.status(200).send({ token });

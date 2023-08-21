@@ -52,5 +52,5 @@ class AuthApi {
 }
 
 export const authApi = new AuthApi({
-  urlBody: "https://auth.nomoreparties.co"
+  urlBody: "https://api.mesto.aakondrash.nomoredomainsicu.ru"
 });

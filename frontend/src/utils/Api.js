@@ -110,6 +110,5 @@ class Api {
 }
 
 export const api = new Api({
-  urlBody: "https://mesto.nomoreparties.co/v1/cohort-65/",
-  token: "e4c79f11-22cf-45f3-b5e4-f082c834d861"
+  urlBody: "https://api.mesto.aakondrash.nomoredomainsicu.ru"
 });

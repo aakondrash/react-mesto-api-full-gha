@@ -18,7 +18,7 @@ const { createUser, login } = require('./controllers/users');
 
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
-const { mestodbUrl = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
+const { DB_ADDRESS = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
 
 const app = express();
 
@@ -30,7 +30,7 @@ app.get('/crash-test', () => {
   }, 0);
 });
 
-mongoose.connect(mestodbUrl);
+mongoose.connect(DB_ADDRESS);
 
 app.use(requestLogger);
 

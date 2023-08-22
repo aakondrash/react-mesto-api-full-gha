@@ -17,6 +17,7 @@ const cards = require('./routes/cards');
 const { createUser, login } = require('./controllers/users');
 
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const { cors } = require('./middlewares/cors');
 
 const { DB_ADDRESS = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
 
@@ -33,6 +34,9 @@ app.get('/crash-test', () => {
 mongoose.connect(DB_ADDRESS);
 
 app.use(requestLogger);
+app.use(errorLogger);
+
+app.use(cors);
 
 app.use(
   express.urlencoded({ extended: true })

@@ -31,7 +31,7 @@ class Api {
   }
 
   editProfileInfo(data) {
-    return fetch(`${this._urlBody}users/me`, {
+    return fetch(`${this._urlBody}/users/me`, {
       method: "PATCH",
       headers: {
         authorization: this._token,
@@ -81,7 +81,7 @@ class Api {
   }
 
   handleCardLike(data) {
-    return fetch(`${this._urlBody}/cards/likes/${data}`, {
+    return fetch(`${this._urlBody}/cards/${data}/likes`, {
       method: "PUT",
       headers: {
         authorization: this._token,
@@ -90,7 +90,7 @@ class Api {
   }
 
   removeCardLike(data) {
-    return fetch(`${this._urlBody}/cards/likes/${data}`, {
+    return fetch(`${this._urlBody}/cards/${data}/likes`, {
       method: "DELETE",
       headers: {
         authorization: this._token,
@@ -110,5 +110,6 @@ class Api {
 }
 
 export const api = new Api({
-  urlBody: "https://api.mesto.aakondrash.nomoredomainsicu.ru"
+  urlBody: "http://localhost:3000",
+  token: `Bearer ${localStorage.getItem('jwt')}`,
 });

@@ -18,8 +18,8 @@ function Card({card, onCardClick, onLikeClick, onDeleteClick}) {
     }
 
     const currentUser = React.useContext(CurrentUserContext);
-    const isOwn = card.owner._id === currentUser._id;
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
+    const isOwn = card.owner === currentUser._id;
+    const isLiked = card.likes.some(i => i === currentUser._id);
 
     return (
         <li className="element">
@@ -29,7 +29,7 @@ function Card({card, onCardClick, onLikeClick, onDeleteClick}) {
             <h2 className="element__text">{card.name}</h2>
             <div className="element__like">
                 <button type="button" className={isLiked ? "element__like-button element__like-button_is-active":"element__like-button"} onClick={handleLikeClick}></button>
-                <span className="element__like-number">{card.likes.length}</span>
+                <span className="element__like-number">{card.likes?.length || 0}</span>
             </div>
             </div>
         </li>

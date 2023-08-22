@@ -33,6 +33,7 @@ function App() {
 
   const [isRegistrationSucceeded, setIsRegistrationSucceeded] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isTokenChecked, setIsTokenChecked] = useState(false);
 
   const [selectedCard, setSelectedCard] = useState(null);
 
@@ -71,7 +72,19 @@ function App() {
 
   useEffect(() => {
     checkUserToken();
+    setIsTokenChecked(true);
   }, [checkUserToken]);
+
+  useEffect(() => { 
+    if (isLoggedIn || isTokenChecked) {
+      Promise.all([api.getProfileInfo(), api.getInitialCards()])
+        .then(([user, cards]) => {
+          setCurrentUser(user.data);
+          setCards(cards.data.reverse());
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [isLoggedIn, isTokenChecked]); 
 
   const handleEditProfileClick = () => {
     setIsEditProfilePopupOpen(true);
@@ -90,10 +103,15 @@ function App() {
   }
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
+    const isLiked = card.likes.some(i => i === currentUser._id);
     api.changeLikeCardStatus(card._id, !isLiked).then((newCard) => {
-        setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
-    }).catch((err) => console.log(err));
+      setCards((cards) => 
+        cards.map((c) => {
+          return c._id === card._id ? newCard.data : c
+        })
+      )
+    })
+    .catch((err) => console.log(err));
   }
 
   const handleCardDelete = (card) => {
@@ -129,7 +147,7 @@ function App() {
   const handleUpdateUser = (userInfo) => {
     api.editProfileInfo(userInfo)
       .then(updatedUser => {
-        setCurrentUser(updatedUser);
+        setCurrentUser(updatedUser.data);
         closeAllPopups();
       }).catch((err) => console.log(err));
   }
@@ -137,7 +155,7 @@ function App() {
   const handleUpdateAvatar = (data) => {
     api.editAvatar(data)
       .then(updatedUser => {
-        setCurrentUser(updatedUser);
+        setCurrentUser(updatedUser.data);
         closeAllPopups();
       }).catch((err) => console.log(err)); 
   }
@@ -145,7 +163,7 @@ function App() {
   const handleAddPlace = (data) => {
     api.addNewCard(data)
       .then(newCard => {
-        setCards([newCard, ...cards]);
+        setCards([newCard.data, ...cards]);
         closeAllPopups();
       }).catch((err) => console.log(err)); 
   }
@@ -183,17 +201,6 @@ function App() {
   function openInfoTooltip() {
     setIsInfoTooltipOpened(true);
   };
-
-  useEffect(() => { 
-    if (isLoggedIn) {
-      Promise.all([api.getProfileInfo(), api.getInitialCards()])
-        .then(([user, cards]) => {
-          setCurrentUser(user);
-          setCards(cards);
-        })
-        .catch((err) => console.log(err));
-    }
-  }, [isLoggedIn]); 
 
   return (
     <CurrentUserContext.Provider value={currentUser}>

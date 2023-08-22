@@ -21,11 +21,13 @@ class AuthApi {
     }).then((res) => this._checkRequestStatus(res));
   }
 
-  authorizeUser(email, password) {
+  authorizeUser(email, password, token) {
     return fetch(`${this._urlBody}/signin`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        Accept: "application/json",
+        'Content-Type': 'application/json',
+        authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({ email, password })
     }).then((res) => this._checkRequestStatus(res))
@@ -42,8 +44,9 @@ class AuthApi {
     return fetch(`${this._urlBody}/users/me`, {
       method: 'GET',
       headers: {
+        Accept: 'application/json',
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
+        authorization: `Bearer ${token}`,
       }
     }).then((res) => this._checkRequestStatus(res))
       .then(data => data);
@@ -52,5 +55,9 @@ class AuthApi {
 }
 
 export const authApi = new AuthApi({
-  urlBody: "https://api.mesto.aakondrash.nomoredomainsicu.ru"
+  urlBody: "http://localhost:3000",
+  headers: {
+    authorization: `Bearer ${localStorage.getItem('jwt')}`,
+    'Content-Type': 'application/json',
+  },
 });

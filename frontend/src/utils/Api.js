@@ -110,6 +110,6 @@ class Api {
 }
 
 export const api = new Api({
-  urlBody: "http://localhost:3000",
+  urlBody: "https://api.mesto.aakondrash.nomoredomainsicu.ru",
   token: `Bearer ${localStorage.getItem('jwt')}`,
 });

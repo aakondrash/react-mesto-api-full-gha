@@ -3,6 +3,10 @@ const allowedCors = [
   'http://localhost:3000',
   'https://localhost:3001',
   'http://localhost:3001',
+  'https://api.mesto.aakondrash.nomoredomainsicu.ru',
+  'http://api.mesto.aakondrash.nomoredomainsicu.ru',
+  'https://mesto.aakondrash.nomoredomainsicu.ru',
+  'http://mesto.aakondrash.nomoredomainsicu.ru',
 ];
 const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
 

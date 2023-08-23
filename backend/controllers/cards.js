@@ -21,7 +21,7 @@ module.exports.deleteCard = (req, res, next) => {
         return next(new ForbiddenError('Карточка вам не принадлежит - вы не можете удалить ее.'));
       }
       Card.deleteOne(card).then(() => res.status(200).send({ data: card }));
-      return next();
+      return next;
     })
     .catch((err) => {
       if (err.name === 'NotFoundError') return next(new NotFoundError('Карточка с указанным _id не найдена.'));

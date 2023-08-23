@@ -3,7 +3,6 @@ const UnauthorizedError = require('../error_templates/UnauthorizedError');
 
 const { JWT_SECRET, NODE_ENV } = process.env;
 
-
 module.exports.auth = (req, res, next) => {
   const { authorization } = req.headers;
   if (!authorization || !authorization.startsWith('Bearer ')) {

@@ -106,10 +106,15 @@ class Api {
     }
   }
 
+  refreshToken(token) {
+    this._token = `Bearer ${token}`;
+  }
+
 
 }
 
 export const api = new Api({
-  urlBody: "https://api.mesto.aakondrash.nomoredomainsicu.ru",
+  // urlBody: "https://api.mesto.aakondrash.nomoredomainsicu.ru",
+  urlBody: "http://localhost:3000",
   token: `Bearer ${localStorage.getItem('jwt')}`,
 });

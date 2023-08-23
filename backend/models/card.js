@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
+
 const { ObjectId } = mongoose.Schema.Types;
 const isUrl = require('validator/lib/isURL');
-const isEmail = require('validator/lib/isEmail');
 
 const cardSchema = new mongoose.Schema(
   {
@@ -17,7 +17,7 @@ const cardSchema = new mongoose.Schema(
       validate: {
         validator: (link) => isUrl(link),
         message: 'Ошибка валидации ссылки',
-      }
+      },
     },
     owner: {
       type: ObjectId,

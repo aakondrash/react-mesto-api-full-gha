@@ -1,13 +1,12 @@
 const router = require('express').Router();
+const { celebrate, Joi } = require('celebrate');
 const {
-  createUser,
   getAllUsers,
   getUserInfo,
   setAvatar,
-  setProfile
+  setProfile,
 } = require('../controllers/users');
 const { URL_REGEXP_PATTERN } = require('../utils/constants');
-const {celebrate, Joi} = require('celebrate');
 
 router.get('/users', getAllUsers);
 router.get('/users/me', getUserInfo);

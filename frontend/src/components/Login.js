@@ -34,7 +34,7 @@ export default function Login({ onAuth }) {
                   <span id="name__error" className="start-page__input-error"></span>
               </div>
               <div className="start-page__field">
-                  <input name="job" className="start-page__input" type="text" placeholder="Пароль" required minLength="2" maxLength="200" autoComplete="off" onInput={handlePasswordChange} value={password}/>
+                  <input name="job" type="password" className="start-page__input" placeholder="Пароль" required minLength="2" maxLength="200" autoComplete="off" onInput={handlePasswordChange} value={password}/>
                   <span id="job__error" className="start-page__input-error"></span>
               </div>
               <button type="submit" className="start-page__button">Войти</button>

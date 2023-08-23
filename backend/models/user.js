@@ -9,14 +9,14 @@ const userSchema = new mongoose.Schema(
       required: false,
       minlength: 2, // минимальная длина имени — 2 символа
       maxlength: 30, // а максимальная — 30 символов
-      default: 'Жак-Ив Кусто'
+      default: 'Жак-Ив Кусто',
     },
     about: {
       type: String,
       required: false,
       minlength: 2, // минимальная длина имени — 2 символа
       maxlength: 30, // а максимальная — 30 символов
-      default: 'Исследователь'
+      default: 'Исследователь',
     },
     avatar: {
       type: String,
@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema(
         validator: (avatarLink) => isUrl(avatarLink),
         message: 'Ошибка валидации формата ссылки',
       },
-      default: 'https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png'
+      default: 'https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png',
     },
     email: {
       type: String,
@@ -40,7 +40,7 @@ const userSchema = new mongoose.Schema(
     password: {
       type: String,
       required: true,
-      select: false
+      select: false,
     },
   },
 );

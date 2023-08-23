@@ -177,6 +177,7 @@ function App() {
       .then((res) => {
         if (res) {
           setIsRegistrationSucceeded(true);
+          navigate('../', { replace: true }); 
         };
       })
       .catch((err) => {
@@ -193,9 +194,10 @@ function App() {
       .then((jwt) => {
         if (jwt) {
           handleLogin();
+          api.refreshToken(jwt);
           navigate('../', { replace: true });
         };
-      }).catch((err) => console.log(err)); 
+      }).catch((err) => console.log(err));
   }
 
   function openInfoTooltip() {

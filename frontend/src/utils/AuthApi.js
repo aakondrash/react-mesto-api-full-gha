@@ -55,8 +55,8 @@ class AuthApi {
 }
 
 export const authApi = new AuthApi({
-  // urlBody: "https://api.mesto.aakondrash.nomoredomainsicu.ru",
-  urlBody: "http://localhost:3000",
+  urlBody: "https://api.mesto.aakondrash.nomoredomainsicu.ru",
+  // urlBody: "http://localhost:3000",
   headers: {
     authorization: `Bearer ${localStorage.getItem('jwt')}`,
     'Content-Type': 'application/json',
